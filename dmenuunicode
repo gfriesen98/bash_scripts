@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# from Luke Smith's github (voidrice)
+
+chosen=$(grep -v "#" ~/Documents/Projects/bash_scripts/emoji | dmenu -i -l 20 -fn 'UbuntuMono Nerd Font Mono:bold:pixelsize=16')
+
+[ "$chosen" != "" ] || exit
+
+c=$(echo "$chosen" | sed "s/ .*//")
+echo "$c" | tr -d '\n' | xclip -selection clipboard
+
+s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
+echo "$s" | tr -d '\n' | xclip
