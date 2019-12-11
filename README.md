@@ -11,4 +11,5 @@ Looks for my external hdd and displays a dmenu list of videos to play in mpv
 An i3 lock script that creates a blurry image of the current desktop and locks the screen
 
 ## dmenuunicode
-A no notification version of based boomers famous emoji script 😎
+A n̶o̶ ̶n̶o̶t̶i̶f̶i̶c̶a̶t̶i̶o̶n̶ version of based boomers famous emoji script 😎
+I lied oops
