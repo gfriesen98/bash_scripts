@@ -12,3 +12,9 @@ An i3 lock script that creates a blurry image of the current desktop and locks t
 
 ## dmenuunicode
 A n̶o̶ ̶n̶o̶t̶i̶f̶i̶c̶a̶t̶i̶o̶n̶ version of based boomers famous emoji script 😎
+
+## dmenukaomoji
+The same as above but with kaomojis
+
+## bash_alias
+A list of my bash alias'
