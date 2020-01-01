@@ -1,0 +1,15 @@
+# Change Directory
+dl      List alias'
+dp      Change directory to ~/Documents/Projects and lists
+dpp     Change directory to ~/Documents/Projects/Python and lists
+db      Change directory to ~/Documents/Projects/bash_scripts and lists
+
+# Open file in Code - OSS
+oi      Opens i3 config
+ob      Opens .bashrc
+ox      Opens .Xdefaults
+ow      Opens wal colors folder
+obb      Opens bumblebee_status folder
+
+# Program shorthands
+p       Shorthand for python3
