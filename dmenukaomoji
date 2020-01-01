@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-# from Luke Smith's github (voidrice)
 
 chosen=$(grep -v "#" ~/Documents/Projects/bash_scripts/kaomoji | dmenu -i -l 30 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:pixelsize=16')
 
