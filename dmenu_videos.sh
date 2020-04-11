@@ -3,8 +3,16 @@
 # and play the folder/video in mpv
 # Author: Garett Friesen
 
-main_select_two_electric_boogaloo (){
-  drive=$(df -h | awk '{print $6}' | grep -v "Mounted" | dmenu -l 10 -p "Select mnt'd dir." -l 10 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
+main (){
+  # drive=$(df -h | awk '{print $6}' | grep -v "Mounted" | dmenu -l 10 -p "Select mnt'd dir." -l 10 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
+  user=$(who | awk '{print $1}')
+  drive=$(ls -d /run/media/${user}/* | dmenu -l 10 -p "Select" -l 10 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
+
+  if [[ $drive == '' ]]
+  then
+    notify-send "No folders found"
+    exit
+  fi
   # TODO
   # Add functionality to select a mounted drives path to videos folder
   # folders=$(echo -e "ANIME\nMOVIES" | dmenu -p "Select Type" -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'UbuntuMono Nerd Font Mono:bold:pixelsize=16')
@@ -17,8 +25,8 @@ main_select_two_electric_boogaloo (){
     then
       path=$(ls -d ${choice}/* | dmenu -p "🎥 What Video?" -i -l 15 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
       if [[ $path != '' ]]
-      then 
-        notify-send "🎬 ${path} is playing"
+      then
+        notify-send "🎬 ${path##*/} is playing"
         mpv "$path"
         exit
       else
@@ -32,4 +40,4 @@ main_select_two_electric_boogaloo (){
   fi
 }
 
-main_select_two_electric_boogaloo
+main
