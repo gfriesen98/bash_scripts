@@ -1,6 +1,9 @@
 # bash_scripts
 Just a place to store my scripts.
 
+## startpage
+Script to copy new colorscheme colors from pywal, runs scss preprocessor and uploads to ghpages
+
 ## battery
 Put this in the i3 config for the status bar to display current battery life, charge status, and backlight brightness
 
