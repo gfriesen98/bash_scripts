@@ -5,7 +5,7 @@
 
 main (){
   # drive=$(df -h | awk '{print $6}' | grep -v "Mounted" | dmenu -l 10 -p "Select mnt'd dir." -l 10 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
-  user=$(who | awk '{print $1}')
+  user=$(who | awk '{print $1}' | sed 1q) #yea
   drive=$(ls -d /run/media/${user}/* | dmenu -l 10 -p "Select" -l 10 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
 
   if [[ $drive == '' ]]
@@ -19,7 +19,7 @@ main (){
   folders=$(ls -d ${drive}/* | dmenu -p "Select Folder" -l 10 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
   if [[ $folders != '' ]]
   then
-    #choice=$(echo -e "UNWATCHED\nWATCHED" | dmenu -p "Select Watch Type" -i -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'UbuntuMono Nerd Font Mono:bold:pixelsize=16')
+    # choice=$(echo -e "UNWATCHED\nWATCHED" | dmenu -p "Select Watch Type" -i -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
     choice=$(ls -d ${folders}/* | dmenu -l 10 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:bold:pixelsize=16')
     if [[ $choice != '' ]]
     then
