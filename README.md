@@ -4,6 +4,9 @@ Just a place to store my scripts.
 ## startpage
 Script to copy new colorscheme colors from pywal, runs scss preprocessor and uploads to ghpages
 
+## random_background
+Script that selects a random background/colorscheme, crops out the center of the wallpaper to use for my webpage, updates the webpages colorscheme and commits changes
+
 ## battery
 Put this in the i3 config for the status bar to display current battery life, charge status, and backlight brightness
 
