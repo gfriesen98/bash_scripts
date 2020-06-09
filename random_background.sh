@@ -11,15 +11,15 @@ fi
 wal -i $folder
 notify-send "Wallpaper & Color Scheme Set"
 
-sleep 2
+sleep 4
+
+cp ~/.cache/wal/colors.scss ~/Documents/Projects/Web/gfriesen98.github.io/styles/colors.scss
+
+sleep 4
 
 convert $wallpaper -resize 250x250^ -gravity center -extent 250x250 -quality 90 /home/garett/Documents/Projects/Web/gfriesen98.github.io/cropped.png
 
 notify-send "Cropped Wallpaper"
-
-sleep 2
-
-cp ~/.cache/wal/colors.scss ~/Documents/Projects/Web/gfriesen98.github.io/styles/colors.scss
 
 cd ~/Documents/Projects/Web/gfriesen98.github.io
 
