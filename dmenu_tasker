@@ -1,0 +1,36 @@
+#!/bin/bash
+
+tasks=$(tasker -l | dmenu -p "Tasker (Type 'new' for new task):" -l 5)
+
+if [[ $tasks == '' ]]; then exit
+fi
+
+if [[ $tasks == 'new' ]]; then
+    name=$(echo "" | dmenu -p "Task Name:")
+    if [[ $name == "" ]]; then exit
+    fi
+    content=$(echo "" | dmenu -p "Task Content")
+    if [[ $content == "" ]]; then exit
+    fi
+    echo "$name,$content" >> ~/.tasker/tasks.csv
+    notify-send "Tasker" "Task $name Created."
+    exit
+fi
+
+taskopt=$(echo -e "Edit?\nDelete?" | dmenu -p "...")
+
+if [[ $taskopt == 'Edit?' ]]; then
+    task=$(echo $tasks | awk '{print $2, $3}' | sed -e "s/: /,/g")
+    echo $task
+    name=$(echo "" | dmenu -p "Task Name:")
+    content=$(echo "" | dmenu -p "Task Content")
+    sed -i "s/${task}/${name},${content}/g" ~/.tasker/tasks.csv
+    notify-send "Tasker" "$task > $name,$content"
+    exit
+elif [[ $taskopt == 'Delete?' ]]; then
+    task=$(echo $tasks | awk '{print $2, $3}' | sed -e "s/: /,/g")
+    echo $task
+    sed -i "/${task}/d" ~/.tasker/tasks.csv
+    notify-send "Tasker" "Deleted $task"
+    exit
+fi
