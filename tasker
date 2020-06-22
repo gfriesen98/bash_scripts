@@ -51,7 +51,6 @@ while getopts :hlt:c:n:d option; do
             exit ;;
         d)
             read_tasks
-            fi
             echo "Delete Which? (Task Name):"
             read -p "Select Name: " i
             sed -i "/${i},*/d" $INPUT
