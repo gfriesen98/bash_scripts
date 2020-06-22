@@ -1,7 +1,9 @@
-choices=("Watched\nUnwatched")
+# choices=("Watched\nUnwatched")
 
-selecton=$(echo -e "$choices" | dmenu -p "Select" -nb '#1d2021' -nf '#d5c4a1' -sb '#b8bb26' -sf '#1d2021' -fn 'GohuNew:bold:pixelsize=16')
-
+selecton=$(echo -e "Watched\nUnwatched" | dmenu -p "Select" -nb '#1d2021' -nf '#d5c4a1' -sb '#b8bb26' -sf '#1d2021' -fn 'GohuNew:bold:pixelsize=16' 2>/dev/null)
+if [[ $selecton == '' ]]; then 
+  exit 
+fi
 if [[ $selecton == "Watched" ]]; then
   watched=$(ls -d /run/media/garett/Anime/ANIME/WATCHED/* | dmenu -l 10 -p "Select" -nb '#1d2021' -nf '#d5c4a1' -sb '#b8bb26' -sf '#1d2021' -fn 'GohuNew:bold:pixelsize=16')
   if [[ $watched != '' ]]; then

@@ -1,4 +1,4 @@
-asdasdasd#!/usr/bin/env bash
+assdasdasdasd#!/usr/bin/env bash
 tempbg='/tmp/screen.png'
 
 scrot -o /tmp/screen.png
