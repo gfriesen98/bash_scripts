@@ -1,6 +1,9 @@
 # bash_scripts
 Just a place to store my scripts.
 
+## tasker
+Script that helps me track tasks that need to be done
+
 ## startpage
 Script to copy new colorscheme colors from pywal, runs scss preprocessor and uploads to ghpages
 
@@ -11,7 +14,10 @@ Script that selects a random background/colorscheme, crops out the center of the
 Put this in the i3 config for the status bar to display current battery life, charge status, and backlight brightness
 
 ## dmenu_videos
-Looks for my external hdd and displays a dmenu list of videos to play in mpv
+(shiddy)Looks for my external hdd and displays a dmenu list of videos to play in mpv
+
+## anime
+Script that looks for watched/unwatched anime on my external hdd, plays it in mpv
 
 ## lock
 An i3 lock script that creates a blurry image of the current desktop and locks the screen

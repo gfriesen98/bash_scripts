@@ -36,12 +36,28 @@ Help() {
    echo "   Both Name AND Content are required to create a new task. "
 }
 
-while getopts :ln:c:h option; do
+while getopts :lt:c:h:nd option; do
     case $option in
+        n)
+            if [ -d "$HOME/.tasker" ]; then
+                echo "Folder exists"
+            else
+                mkdir $HOME/.tasker
+                touch $HOME/.tasker/tasks.csv
+                echo "title,content" >> $HOME/.tasker/tasks.csv
+                echo "Created Tasker csv in $HOME/.tasker/tasks.csv"
+            fi
+            exit ;;
+        d)
+            read_tasks
+            echo "Delete Which? (Task Name):"
+            read -p "Select Name: " i
+            sed -i "/${i},*/d" $INPUT
+            exit ;;
         l) 
             read_tasks
             exit ;;
-        n) 
+        t) 
             TITLE=$OPTARG ;;
         c)
             CONTENT=$OPTARG ;;
