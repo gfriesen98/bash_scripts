@@ -28,9 +28,10 @@ if [[ $taskopt == 'Edit?' ]]; then
     notify-send "Tasker" "$task > $name,$content"
     exit
 elif [[ $taskopt == 'Delete?' ]]; then
-    task=$(echo $tasks | awk '{print $2, $3}' | sed -e "s/: /,/g")
-    echo $task
-    sed -i "/${task}/d" ~/.tasker/tasks.csv
+    echo $tasks | 
+        awk '{print $2, $3}' | 
+        sed -e "s/: /,/g"    |
+        tasker -d
     notify-send "Tasker" "Deleted $task"
     exit
 fi
