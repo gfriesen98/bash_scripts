@@ -1,0 +1,71 @@
+#/bin/bash
+
+#Parse tasker tasks.csv and print list of tasks
+read_tasks() {
+    INPUT=~/.tasker/tasks.csv
+    OLDIFS=$IFS
+    IFS=','
+    x=1
+    [ ! -f $INPUT ] && { echo "$INPUT not found"; exit 99; }
+    while read title content
+    do
+        var=$var"$x) $title: $content\n"
+        x=$(( $x + 1 ))
+    done < $INPUT
+    IFS=$OLDIFS
+
+    echo -e $var
+}
+
+# Print help menu
+Help() {
+   echo "Tasker: Create and list tasks"
+   echo
+   echo "Syntax: tasker [-l|h] [-n \"name\"] [-c \"content\"]"
+   echo "options:"
+   echo "l               List tasks"
+   echo "h               Print this Help."
+   echo "n \"name\"        Name of new task."
+   echo "c \"content\"     Content for new task."
+   echo
+   echo "Usage:"
+   echo
+   echo "   -l can be piped into dmenu."
+   echo "   Both Name AND Content are required to create a new task. "
+}
+
+while getopts :ln:c:h option; do
+    case $option in
+        l) 
+            read_tasks
+            exit ;;
+        n) 
+            TITLE=$OPTARG ;;
+        c)
+            CONTENT=$OPTARG ;;
+        h)
+            Help
+            exit ;;
+        \?) 
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1 ;;
+        :)
+            echo "Option -$OPTARG requires an argument." >&2
+            exit 1 ;;
+    esac
+done
+
+# Check if name and content exist
+if [ -z ${TITLE+x} ]; then 
+    echo "Name is required to add a task.";
+    exit
+fi
+
+if [ -z ${CONTENT+x} ]; then 
+    echo "Content is required to add a task.";
+    exit
+fi
+
+# Create new task
+echo "$TITLE,$CONTENT" >> ~/.tasker/tasks.csv
+notify-send "Task $TITLE Created."
