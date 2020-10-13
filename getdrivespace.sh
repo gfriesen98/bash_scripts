@@ -1,0 +1,1 @@
+echo $(df -h / | sed -n -e 2,2p | awk '{print $4, "free"}')

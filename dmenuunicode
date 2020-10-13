@@ -1,12 +1,15 @@
 #!/usr/bin/env sh
 
-chosen=$(grep -v "#" ~/Documents/Projects/bash_scripts/emoji | dmenu -i -l 5 -nb '#000000' -nf '#bcb1a3' -sb '#1c3b56' -sf '#bcb1a3' -fn 'GohuNew:pixelsize=16')
+chosen=$(cut -d ';' -f1 ~/Documents/Projects/bash_scripts/emoji | /home/garett/Documents/Suckless/dmenu-4.9/dmenu -i -l 10 | sed "s/ .*//")
 
-[ "$chosen" != "" ] || exit
+# Exit if none chosen.
+[ -z "$chosen" ] && exit
 
-c=$(echo "$chosen" | sed "s/ .*//")
-echo "$c" | tr -d '\n' | xclip -selection clipboard
-notify-send "${c} copied to clipboard"&
-
-s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
-echo "$s" | tr -d '\n' | xclip
+# If you run this command with an argument, it will automatically insert the
+# character. Otherwise, show a message that the emoji has been copied.
+if [ -n "$1" ]; then
+	xdotool type "$chosen"
+else
+	echo "$chosen" | tr -d '\n' | xclip -selection clipboard
+	notify-send "'$chosen' copied to clipboard." &
+fi

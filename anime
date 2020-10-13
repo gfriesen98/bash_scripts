@@ -1,6 +1,6 @@
 # choices=("Watched\nUnwatched")
 
-selecton=$(echo -e "Watched\nUnwatched" | dmenu -p "Select" -nb '#1d2021' -nf '#d5c4a1' -sb '#b8bb26' -sf '#1d2021' -fn 'GohuNew:bold:pixelsize=16' 2>/dev/null)
+selecton=$(echo -e "Unwatched\nWatched" | dmenu -p "Select" -nb '#1d2021' -nf '#d5c4a1' -sb '#b8bb26' -sf '#1d2021' -fn 'GohuNew:bold:pixelsize=16' 2>/dev/null)
 if [[ $selecton == '' ]]; then 
   exit 
 fi

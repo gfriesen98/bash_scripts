@@ -1,0 +1,12 @@
+<span> ...  Showing first 10 transfers ... </span><br/>
+<span>TYPE TAG SOURCEPATH DESTINYPATH PROGRESS             STATE  </span><br/>
+<span>⇓    58             /hom....mkv 28.59% of  723.76 MB ACTIVE </span><br/>
+<span>⇓    59             /hom....mkv 0.00% of  824.65 MB  QUEUED </span><br/>
+<span>⇓    60             /hom....mkv 0.00% of  884.60 MB  QUEUED </span><br/>
+<span>⇓    61             /hom....mkv 0.00% of  866.35 MB  QUEUED </span><br/>
+<span>⇓    62             /hom....mkv 0.00% of   10.19 MB  QUEUED </span><br/>
+<span>⇓    63             /hom....mkv 0.00% of   15.90 MB  QUEUED </span><br/>
+<span>⇓    64             /hom....mkv 0.00% of   15.66 MB  QUEUED </span><br/>
+<span>⇓    65             /hom....mkv 0.00% of   17.49 MB  QUEUED </span><br/>
+<span>⇓    66             /hom....mkv 0.00% of   22.64 MB  QUEUED </span><br/>
+<span>⇓    67             /hom....mkv 0.00% of   19.37 MB  QUEUED </span><br/>
