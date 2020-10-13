@@ -1,9 +1,0 @@
-[Unit]
-Description=NodeMega
-
-[Service]
-ExecStart=/home/garett/Documents/Projects/bash_scripts/megawatchd
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
